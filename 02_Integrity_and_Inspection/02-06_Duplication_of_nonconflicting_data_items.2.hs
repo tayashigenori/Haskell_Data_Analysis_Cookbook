@@ -31,13 +31,12 @@ parseToTuple :: [String] -> (String, Item)
 parseToTuple record = (name item, item)
     where item = parseItem record
 
--- does not work yet!!!!
 parseItem :: Record -> Item
 parseItem record =
     Item { name = record !! 0
-         , color = case reads(record !! 1)::[(String, String)] of
-           [(s1, s2)] -> Just s2
-           _ -> Nothing
+         , color = case record !! 1 of
+           "" -> Nothing
+           s -> Just s
          , cost = case reads(record !! 2)::[(Float, String)] of
            [(c, "")] -> Just c
            _ -> Nothing }

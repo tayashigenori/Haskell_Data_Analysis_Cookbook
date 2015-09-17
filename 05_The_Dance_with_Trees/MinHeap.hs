@@ -1,4 +1,4 @@
-module MinHeap (empty, insert, deleteMin, weights) where
+module MinHeap (empty, insert, deleteMin, weights, items, viewMin) where
 
 import Control.Lens (element, set)
 import Data.Maybe (isJust, fromJust)
